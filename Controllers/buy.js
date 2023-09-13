@@ -7,8 +7,8 @@ exports.newBuy = async (req, res, next) => {
     } = req.body;
 
     const buy = await buyModel.create({
-        title, category, description, price, rentprice, rentType
-        // user: req.user._id,
+        title, category, description, price, rentprice, rentType,
+        user: req.user._id,
     });
     res.status(201).json({
         success: true,

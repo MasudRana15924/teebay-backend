@@ -12,19 +12,3 @@
   });
 };
 module.exports = sendToken;
-
-// const sendDoctorToken = (doctor, statusCode, res) => {
-//   const token = doctor.getJWTToken();
-
-//   const options = {
-//     expires: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
-//     httpOnly: true,
-//     Secure: true,
-//   };
-//   res.status(statusCode).cookie("token", token, options).json({
-//     success: true,
-//     doctor,
-//     token,
-//   });
-// };
-// module.exports = sendDoctorToken;

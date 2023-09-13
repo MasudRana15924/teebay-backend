@@ -1,5 +1,4 @@
 const userModel = require('../models/User');
-const doctorModel = require('../models/Doctors');
 const jwt = require("jsonwebtoken");
 exports.isAuthenticatedUser = async (req, res, next) => {
   const token = req.header("Authorization");
