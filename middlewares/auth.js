@@ -10,12 +10,3 @@ exports.isAuthenticatedUser = async (req, res, next) => {
   req.user = await userModel.findById(decodedData.id);
   next();
 };
-
-exports.authorizeRoles = (...roles) => {
-  return (req, res, next) => {
-    if (!roles.includes(req.user.role)) {
-      res.status(401).json({ message: "Only admin can access this" });
-    }
-    next();
-  };
-};

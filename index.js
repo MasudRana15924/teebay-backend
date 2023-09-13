@@ -6,7 +6,6 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const cors = require('cors');
 require('dotenv').config();
-const cloudinary = require("cloudinary");
 const errorMiddleware = require("./middlewares/error");
 app.use(express.json());
 app.use(cookieParser());
@@ -18,16 +17,9 @@ const corsOptions ={
   credentials:true,            //access-control-allow-credentials:true
   optionSuccessStatus:200,
 }
-
 app.use(cors(corsOptions))
-
 const port = process.env.PORT || 5000;
 connectDatabase();
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
 const routes = require('./route/routes');
 app.use("/api", routes);
 
